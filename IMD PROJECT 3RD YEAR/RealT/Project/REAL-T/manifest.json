@@ -1,0 +1,37 @@
+{
+  "manifest_version": 3,"icons": {
+  "16": "icon16.png",
+  "48": "icon48.png",
+  "128": "icon128.png"
+},
+"name": "REAL-T",
+
+  "version": "1.0",
+  "description": "Detect fake or real reviews using your BERT model.",
+
+  "permissions": [
+    "storage",
+    "activeTab",
+    "scripting"
+  ],
+
+  "host_permissions": [
+    "https://*.ngrok-free.dev/*",
+    "http://127.0.0.1/*"
+  ],
+
+  "action": {
+    "default_popup": "popup.html"
+  },
+
+  "background": {
+    "service_worker": "background.js"
+  },
+
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"]
+    }
+  ]
+}
